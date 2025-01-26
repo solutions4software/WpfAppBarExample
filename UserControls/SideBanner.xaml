@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="WpfAppBarExample.UserControls.SideBanner"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfAppBarExample.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" Width="470">
+    <Grid>
+        <Border Background="Black" Opacity="0.32" >
+            <!--<Border.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="0 1" Opacity="0.32" >
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Offset="0.1" Color="Black" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Border.Background>-->
+        </Border>
+
+        <Border Background="Black" VerticalAlignment="Bottom" Height="20" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <TextBlock Text="Powered By " Foreground="White" />
+                <TextBlock x:Name="txtQubixAiLink" Text="QUBIX AI" Cursor="Hand" Foreground="#80FFE1"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
