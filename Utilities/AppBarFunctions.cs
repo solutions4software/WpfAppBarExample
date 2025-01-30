@@ -67,10 +67,8 @@ namespace WpfAppBarExample.Utilities
                     Edge = ABEdge.Top,
                     OriginalStyle = appbarWindow.WindowStyle,
                     OriginalPosition = new Point(appbarWindow.Left, appbarWindow.Top),
-                    OriginalSize =
-                        new Size(appbarWindow.ActualWidth, appbarWindow.ActualHeight),
+                    OriginalSize = new Size(appbarWindow.ActualWidth, appbarWindow.ActualHeight),
                     OriginalResizeMode = appbarWindow.ResizeMode,
-                    OriginalTopmost = appbarWindow.Topmost,
                     DockedSize = null
 
                 };

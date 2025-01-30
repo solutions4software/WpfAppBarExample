@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfAppBarExample.SideBanner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppBarExample"
+        mc:Ignorable="d"
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}" Width="470" ShowInTaskbar="False" ResizeMode="NoResize"
+        WindowStyle="None" Loaded="Window_Loaded">
+    <Grid>
+    <Border Background="Black" Opacity="0.32" >
+        <!--<Border.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="0 1" Opacity="0.32" >
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Offset="0.1" Color="Black" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Border.Background>-->
+    </Border>
+
+    <Border Background="Black" VerticalAlignment="Bottom" Height="20" >
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+            <TextBlock Text="Powered By " Foreground="White" />
+            <TextBlock x:Name="txtQubixAiLink" Text="QUBIX AI" Cursor="Hand" Foreground="#80FFE1"/>
+        </StackPanel>
+    </Border>
+    </Grid>
+</Window>

@@ -14,62 +14,39 @@ using static System.Environment;
 
 namespace WpfAppBarExample
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly System.Timers.Timer timer = new();
-
         public MainWindow()
         {
             InitializeComponent();
             RuningWindows runingWindows = new RuningWindows();
             runingWindows.DoStartWatcher(this);
-            try
-            {
-                timer.Elapsed += new ElapsedEventHandler(Timer_Tick);
-                timer.Interval = 2 * 1000;
-                //timer.Enabled = true;
-            }
-            catch (Exception) { }
+            SideBanner sideBanner = new SideBanner(this);
+            sideBanner.Show();
         }
 
-        private void Timer_Tick(object? sender, ElapsedEventArgs e)
+        public void ShowAppBar()
         {
-            try
-            {
-                Dispatcher.Invoke(() =>
-                {
-                    if (DesktopExtension.FindDesktop())
-                    {
-                        AppBarFunctions.SetAppBar(this, ABEdge.None);
-                        
-                    }
-                    else
-                    {
-                        AppBarFunctions.SetAppBar(this, ABEdge.Top, grid, false);
-                    }
-                });
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            AppBarFunctions.SetAppBar(this, ABEdge.Top, grid, false);
+        }
+
+        public void HideAppBar()
+        {
+            AppBarFunctions.SetAppBar(this, ABEdge.None);
         }
 
         private void AppBar_Click(object sender, RoutedEventArgs e)
         {
             AppBar.IsEnabled = false;
             Normal.IsEnabled = true;
-            AppBarFunctions.SetAppBar(this, ABEdge.Top, grid, false);
+            ShowAppBar();
         }
 
         private void Normal_Click(object sender, RoutedEventArgs e)
         {
             Normal.IsEnabled = false;
             AppBar.IsEnabled = true;
-            AppBarFunctions.SetAppBar(this, ABEdge.None);
+            HideAppBar();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -79,7 +56,6 @@ namespace WpfAppBarExample
                 Left = 0;
                 Top = 0;
                 Width = SystemParameters.WorkArea.Width;
-                //Height = SystemParameters.WorkArea.Height;
             }
             catch (Exception ex) { }
         }

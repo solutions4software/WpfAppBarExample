@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Threading;
 using WpfAppBarExample.Utilities;
 
 namespace WpfAppBarExample
@@ -136,14 +128,14 @@ namespace WpfAppBarExample
                     {
                         parentWindow.Dispatcher.Invoke(() =>
                         {
-                            AppBarFunctions.SetAppBar(parentWindow, ABEdge.Top, parentWindow.grid, false);
+                            parentWindow.ShowAppBar();
                         });
                     }
                     else
                     {
                         parentWindow.Dispatcher.Invoke(() =>
                         {
-                            AppBarFunctions.SetAppBar(parentWindow, ABEdge.None);
+                            parentWindow.HideAppBar();
                         });
                     }
                     Console.WriteLine("Window: " + WindowActive.ToString());
