@@ -119,12 +119,14 @@ namespace WpfAppBarExample
                 StringBuilder builder = new StringBuilder(length);
                 GetWindowText(windowActive.Handle, builder, length + 1);
                 windowActive.Title = builder.ToString();
+                //Console.WriteLine("Window Title: " + windowActive.Title);
                 if (windowActive.ToString() != WindowActive.ToString())
                 {
                     //fire:
                     WindowActive = windowActive;
                     if (WindowActivatedChanged != null) WindowActivatedChanged(sender, e);
-                    if (windowActive.File.Name.ToLower().Equals("explorer.exe"))
+                    //if (windowActive.File.Name.ToLower().Equals("explorer.exe"))
+                    if (windowActive.Title.Equals("Program Manager"))
                     {
                         parentWindow.Dispatcher.Invoke(() =>
                         {
